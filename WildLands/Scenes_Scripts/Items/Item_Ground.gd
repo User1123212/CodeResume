@@ -13,7 +13,7 @@ func _ready():
 func _process(delta):
 	pass
 
-
+#Adds the item data to the player's inventory and removes the item from the scene
 func _on_area_2d_area_shape_entered(area_rid, area, area_shape_index, local_shape_index):
 	if area.is_in_group("Player"):
 		InventoryData.pickup_item(InventoryData.inventory_data, item_resource)
