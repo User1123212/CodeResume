@@ -1,3 +1,4 @@
+#Here is the script for the "use" function on the sword included is a visual representation of the hitbox.
 extends Node
 
 
