@@ -21,4 +21,4 @@ The player is able to use items using the left mouse button. In order to make a 
 
 I look forward to adding more items and potentially some fun combat mechanics such as dodging. 
 
-Survive is a very basic first-person shooter. I added a store system as well as rudimentary 3D models and animations for certain actions. There is a damage system using raycasts and enemy hitboxes
+Defender is a start to a clone of Call of Duty's zombie mode. It is a first-person shooter where you navigate a 3D environment while pursued by enemies. Shooting enemies earns points and points are used to open more of the environment or purchase weapons. 
