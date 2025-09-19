@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://assets/BrickWall.glb" type="PackedScene" id=1]
+
+[sub_resource type="BoxShape3D" id=1]
+size = Vector3( 0.31022, 4.02213, 4.02308 )
+
+[node name="Wall_Brick" type="Node3D"]
+
+[node name="BrickWall" parent="." instance=ExtResource( 1 )]
+transform = Transform3D( 0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0 )
+
+[node name="StaticBody3D" type="StaticBody3D" parent="BrickWall"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="BrickWall/StaticBody3D"]
+shape = SubResource( 1 )

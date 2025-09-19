@@ -1,0 +1,73 @@
+[gd_scene load_steps=9 format=3 uid="uid://brk36qwyyexi1"]
+
+[ext_resource type="Script" path="res://scripts/Player.gd" id="1"]
+[ext_resource type="PackedScene" path="res://scenes/M1911_V1.tscn" id="2"]
+[ext_resource type="Texture2D" uid="uid://luockggwp060" path="res://assets/Crosshairs.png" id="3"]
+[ext_resource type="Script" path="res://scripts/StoreMenu.gd" id="4"]
+[ext_resource type="Texture2D" uid="uid://cfxp7ft30c0dp" path="res://assets/Pistolicon.png" id="5"]
+[ext_resource type="Texture2D" uid="uid://bewcg6dacv1xv" path="res://assets/Rifle.png" id="6"]
+[ext_resource type="Script" path="res://scripts/Weaponslot.gd" id="7"]
+
+[sub_resource type="CapsuleShape3D" id="1"]
+
+[node name="Player" type="CharacterBody3D" groups=["Player"]]
+script = ExtResource("1")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." groups=["Player"]]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 2, 0, -1, -8.74228e-08, 0, 2, -0.499815)
+shape = SubResource("1")
+
+[node name="Head" type="Node3D" parent="." groups=["Player"]]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 2.5, 0)
+
+[node name="Camera3D" type="Camera3D" parent="Head" groups=["Player"]]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 1, 1)
+current = true
+fov = 90.0
+
+[node name="RayCast3D" type="RayCast3D" parent="Head/Camera3D" groups=["CharacterSight", "Player"]]
+target_position = Vector3(0, 0, -100)
+collision_mask = 3
+collide_with_areas = true
+debug_shape_thickness = 5
+
+[node name="Sprite3D" type="Sprite3D" parent="Head/Camera3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1)
+texture = ExtResource("3")
+
+[node name="Weaponslot" type="Node3D" parent="Head/Camera3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.03032, -0.667501, -1.20737)
+script = ExtResource("7")
+
+[node name="M1911_V1" parent="Head/Camera3D/Weaponslot" instance=ExtResource("2")]
+transform = Transform3D(-8.74228e-09, 0, 0.2, 0, 0.2, 0, -0.2, 0, -8.74228e-09, 0, 0, 0)
+
+[node name="Delay" type="Timer" parent="."]
+wait_time = 3.0
+one_shot = true
+
+[node name="StoreMenu" type="PopupMenu" parent="."]
+process_mode = 2
+hide_on_item_selection = false
+hide_on_checkable_item_selection = false
+script = ExtResource("4")
+
+[node name="PistolButton" type="Button" parent="StoreMenu"]
+offset_left = 20.0
+offset_top = 30.0
+offset_right = 134.0
+offset_bottom = 230.0
+text = "Pistol"
+icon = ExtResource("5")
+
+[node name="RifleButton" type="Button" parent="StoreMenu"]
+offset_left = 300.0
+offset_top = 30.0
+offset_right = 414.0
+offset_bottom = 230.0
+text = "AK47"
+icon = ExtResource("6")
+
+[connection signal="timeout" from="Delay" to="." method="_on_Delay_timeout"]
+[connection signal="pressed" from="StoreMenu/PistolButton" to="Head/Camera3D/Weaponslot" method="_on_PistolButton_pressed"]
+[connection signal="pressed" from="StoreMenu/RifleButton" to="Head/Camera3D/Weaponslot" method="_on_RifleButton_pressed"]
