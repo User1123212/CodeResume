@@ -1,3 +1,4 @@
+#Here are the data for the "Test Item"
 [gd_resource type="Resource" script_class="Item" load_steps=3 format=3 uid="uid://doddyn2a83r6f"]
 
 [ext_resource type="Texture2D" uid="uid://f164r3g12nbc" path="res://Assets/TestItem.png" id="1_23ywh"]
