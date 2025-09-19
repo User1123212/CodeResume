@@ -1,3 +1,4 @@
+#This is the code for the generalized item class.
 extends Resource
 
 class_name Item
