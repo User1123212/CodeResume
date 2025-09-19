@@ -1,0 +1,21 @@
+[gd_scene load_steps=4 format=3 uid="uid://3d5ic8yxv33e"]
+
+[ext_resource type="Script" path="res://Scenes_Scripts/Items/Item_Ground.gd" id="1_giiy5"]
+[ext_resource type="Texture2D" uid="uid://f164r3g12nbc" path="res://Assets/TestItem.png" id="2_t12go"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_bjoyx"]
+size = Vector2(122, 115)
+
+[node name="ItemGround" type="Node2D" groups=["Pickup"]]
+script = ExtResource("1_giiy5")
+
+[node name="ItemTexture" type="Sprite2D" parent="." groups=["Pickup"]]
+texture = ExtResource("2_t12go")
+
+[node name="Area2D" type="Area2D" parent="." groups=["Pickup"]]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" groups=["Pickup"]]
+position = Vector2(-1, -2.5)
+shape = SubResource("RectangleShape2D_bjoyx")
+
+[connection signal="area_shape_entered" from="Area2D" to="." method="_on_area_2d_area_shape_entered"]

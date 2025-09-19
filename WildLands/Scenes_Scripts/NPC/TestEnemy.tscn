@@ -1,0 +1,36 @@
+[gd_scene load_steps=6 format=3 uid="uid://b8gtst6ognst5"]
+
+[ext_resource type="Script" path="res://Scenes_Scripts/NPC/TestEnemy.gd" id="1_gdjrx"]
+[ext_resource type="Texture2D" uid="uid://lg062p70ojdh" path="res://Assets/BadGuy.png" id="2_lmn2w"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vjhkg"]
+size = Vector2(64, 64)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_qgatr"]
+radius = 700.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_56u26"]
+size = Vector2(96, 96)
+
+[node name="TestEnemy" type="CharacterBody2D" groups=["Enemy"]]
+script = ExtResource("1_gdjrx")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." groups=["Enemy"]]
+shape = SubResource("RectangleShape2D_vjhkg")
+
+[node name="Sprite2D" type="Sprite2D" parent="." groups=["Enemy"]]
+texture = ExtResource("2_lmn2w")
+
+[node name="AttentionZone" type="Area2D" parent="." groups=["Enemy"]]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AttentionZone" groups=["Enemy"]]
+shape = SubResource("CircleShape2D_qgatr")
+
+[node name="Hitbox" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox"]
+shape = SubResource("RectangleShape2D_56u26")
+
+[connection signal="area_entered" from="AttentionZone" to="." method="_on_attention_zone_area_entered"]
+[connection signal="area_exited" from="AttentionZone" to="." method="_on_attention_zone_area_exited"]
+[connection signal="area_entered" from="Hitbox" to="." method="_on_hitbox_area_entered"]

@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="Item" load_steps=4 format=3 uid="uid://whqry4eqg06g"]
+
+[ext_resource type="Texture2D" uid="uid://bgmya6fatqck3" path="res://Assets/Sword.png" id="1_4iw2e"]
+[ext_resource type="Script" path="res://Scenes_Scripts/Items/Item_Resource.gd" id="1_lsvu8"]
+[ext_resource type="Script" path="res://Scenes_Scripts/Items/ItemScripts/Sword.gd" id="1_oit6h"]
+
+[resource]
+script = ExtResource("1_lsvu8")
+item_name = "Sword"
+item_sprite = ExtResource("1_4iw2e")
+item_script = ExtResource("1_oit6h")

@@ -1,0 +1,40 @@
+[gd_scene load_steps=4 format=3 uid="uid://ls4b10gk341v"]
+
+[ext_resource type="Texture2D" uid="uid://62fdgsifuj0e" path="res://Assets/ToolbeltPanel.png" id="1_06hqt"]
+[ext_resource type="Script" path="res://Scenes_Scripts/PlayerStuff/Inventory/Toolbar_Panel.gd" id="2_2ohic"]
+[ext_resource type="PackedScene" uid="uid://debs3h77ne316" path="res://Scenes_Scripts/PlayerStuff/Inventory/Toolbar_Slot.tscn" id="3_r2sax"]
+
+[node name="ToolbarPanel" type="TextureRect"]
+offset_top = 7.0
+offset_right = 576.0
+offset_bottom = 72.0
+texture = ExtResource("1_06hqt")
+script = ExtResource("2_2ohic")
+
+[node name="GridContainer" type="GridContainer" parent="."]
+layout_mode = 0
+offset_right = 576.0
+offset_bottom = 49.0
+theme_override_constants/h_separation = 80
+columns = 7
+
+[node name="ToolbarSlot" parent="GridContainer" instance=ExtResource("3_r2sax")]
+layout_mode = 2
+
+[node name="ToolbarSlot2" parent="GridContainer" instance=ExtResource("3_r2sax")]
+layout_mode = 2
+
+[node name="ToolbarSlot3" parent="GridContainer" instance=ExtResource("3_r2sax")]
+layout_mode = 2
+
+[node name="ToolbarSlot4" parent="GridContainer" instance=ExtResource("3_r2sax")]
+layout_mode = 2
+
+[node name="ToolbarSlot5" parent="GridContainer" instance=ExtResource("3_r2sax")]
+layout_mode = 2
+
+[node name="ToolbarSlot6" parent="GridContainer" instance=ExtResource("3_r2sax")]
+layout_mode = 2
+
+[node name="ToolbarSlot7" parent="GridContainer" instance=ExtResource("3_r2sax")]
+layout_mode = 2

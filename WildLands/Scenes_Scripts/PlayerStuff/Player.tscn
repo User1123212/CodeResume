@@ -1,0 +1,40 @@
+[gd_scene load_steps=7 format=3 uid="uid://drivtyy5hr2rp"]
+
+[ext_resource type="Script" path="res://Scenes_Scripts/PlayerStuff/Player.gd" id="1_dmufc"]
+[ext_resource type="Texture2D" uid="uid://lmhteofifihg" path="res://Assets/Playa.png" id="1_ttoeh"]
+[ext_resource type="PackedScene" uid="uid://f3y8vtfno61" path="res://Scenes_Scripts/PlayerStuff/Inventory/Inventory_Panel.tscn" id="3_h7lo0"]
+[ext_resource type="PackedScene" uid="uid://ls4b10gk341v" path="res://Scenes_Scripts/PlayerStuff/Inventory/Toolbar_Panel.tscn" id="4_qf6yh"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_lyl85"]
+size = Vector2(64, 64)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_njpit"]
+size = Vector2(43, 45)
+
+[node name="Player" type="CharacterBody2D" groups=["Player"]]
+script = ExtResource("1_dmufc")
+
+[node name="Sprite2D" type="Sprite2D" parent="." groups=["Player"]]
+position = Vector2(0.201642, 0.250006)
+scale = Vector2(0.0776517, 0.138043)
+texture = ExtResource("1_ttoeh")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." groups=["Player"]]
+shape = SubResource("RectangleShape2D_lyl85")
+
+[node name="Camera2D" type="Camera2D" parent="." groups=["Player"]]
+
+[node name="InventoryPanel" parent="Camera2D" instance=ExtResource("3_h7lo0")]
+visible = false
+
+[node name="ToolbarPanel" parent="Camera2D" instance=ExtResource("4_qf6yh")]
+offset_left = -293.0
+offset_top = 196.0
+offset_right = 283.0
+offset_bottom = 261.0
+
+[node name="Hitbox" type="Area2D" parent="." groups=["Player"]]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox" groups=["Player"]]
+position = Vector2(-0.5, -0.5)
+shape = SubResource("RectangleShape2D_njpit")

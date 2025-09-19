@@ -1,0 +1,49 @@
+[gd_scene load_steps=4 format=3 uid="uid://f3y8vtfno61"]
+
+[ext_resource type="Texture2D" uid="uid://csd8pkav7vy1d" path="res://Assets/InventoryPanel.png" id="1_1msaf"]
+[ext_resource type="Script" path="res://Scenes_Scripts/PlayerStuff/Inventory/Inventory_Panel.gd" id="1_k0420"]
+[ext_resource type="PackedScene" uid="uid://cqx0bofbyu4v2" path="res://Scenes_Scripts/PlayerStuff/Inventory/Inventory_Slot.tscn" id="3_73f8s"]
+
+[node name="InventoryPanel" type="TextureRect"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_1msaf")
+script = ExtResource("1_k0420")
+
+[node name="GridContainer" type="GridContainer" parent="."]
+layout_mode = 0
+offset_right = 1152.0
+offset_bottom = 648.0
+theme_override_constants/h_separation = 100
+theme_override_constants/v_separation = 100
+columns = 3
+
+[node name="InventorySlot" parent="GridContainer" instance=ExtResource("3_73f8s")]
+layout_mode = 2
+
+[node name="InventorySlot2" parent="GridContainer" instance=ExtResource("3_73f8s")]
+layout_mode = 2
+
+[node name="InventorySlot3" parent="GridContainer" instance=ExtResource("3_73f8s")]
+layout_mode = 2
+
+[node name="InventorySlot4" parent="GridContainer" instance=ExtResource("3_73f8s")]
+layout_mode = 2
+
+[node name="InventorySlot5" parent="GridContainer" instance=ExtResource("3_73f8s")]
+layout_mode = 2
+
+[node name="InventorySlot6" parent="GridContainer" instance=ExtResource("3_73f8s")]
+layout_mode = 2
+
+[node name="InventorySlot7" parent="GridContainer" instance=ExtResource("3_73f8s")]
+layout_mode = 2
+
+[node name="InventorySlot8" parent="GridContainer" instance=ExtResource("3_73f8s")]
+layout_mode = 2
+
+[node name="InventorySlot9" parent="GridContainer" instance=ExtResource("3_73f8s")]
+layout_mode = 2

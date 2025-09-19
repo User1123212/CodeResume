@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="Item" load_steps=3 format=3 uid="uid://doddyn2a83r6f"]
+
+[ext_resource type="Texture2D" uid="uid://f164r3g12nbc" path="res://Assets/TestItem.png" id="1_23ywh"]
+[ext_resource type="Script" path="res://Scenes_Scripts/Items/Item_Resource.gd" id="1_ipwye"]
+
+[resource]
+script = ExtResource("1_ipwye")
+item_name = "Test_Item"
+item_sprite = ExtResource("1_23ywh")

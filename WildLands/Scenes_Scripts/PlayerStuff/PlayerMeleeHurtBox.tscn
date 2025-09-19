@@ -1,0 +1,28 @@
+[gd_scene load_steps=3 format=3 uid="uid://cp0p5heyntgux"]
+
+[ext_resource type="Script" path="res://Scenes_Scripts/PlayerStuff/PlayerMeleeHurtBox.gd" id="1_qwyy4"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_voa7a"]
+size = Vector2(64, 128)
+
+[node name="PlayerMeleeHitBox" type="Node2D" groups=["Attack"]]
+script = ExtResource("1_qwyy4")
+
+[node name="Area2D" type="Area2D" parent="." groups=["Attack"]]
+position = Vector2(64, 0)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" groups=["Attack"]]
+position = Vector2(32, 10)
+shape = SubResource("RectangleShape2D_voa7a")
+debug_color = Color(0.982918, 0, 0.357823, 0.42)
+
+[node name="ColorRect" type="ColorRect" parent="Area2D" groups=["Attack"]]
+offset_top = -54.0
+offset_right = 64.0
+offset_bottom = 74.0
+color = Color(0.903307, 0, 0.104733, 1)
+metadata/_edit_use_anchors_ = true
+
+[node name="LifeTimer" type="Timer" parent="." groups=["Attack"]]
+
+[connection signal="timeout" from="LifeTimer" to="." method="_on_life_timer_timeout"]
