@@ -1,5 +1,5 @@
 extends Node2D
-
+#This node holds the code and information for a generalized item that can be created via the item scene.
 
 @export var item_resource: Item
 
