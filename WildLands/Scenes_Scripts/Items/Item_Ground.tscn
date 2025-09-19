@@ -1,3 +1,4 @@
+#This is an example item that has been generated and added as a scene to the main node.
 [gd_scene load_steps=4 format=3 uid="uid://3d5ic8yxv33e"]
 
 [ext_resource type="Script" path="res://Scenes_Scripts/Items/Item_Ground.gd" id="1_giiy5"]
