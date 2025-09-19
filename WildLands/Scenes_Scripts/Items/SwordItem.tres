@@ -1,3 +1,4 @@
+#Here are the data contained within the "sword" item.
 [gd_resource type="Resource" script_class="Item" load_steps=4 format=3 uid="uid://whqry4eqg06g"]
 
 [ext_resource type="Texture2D" uid="uid://bgmya6fatqck3" path="res://Assets/Sword.png" id="1_4iw2e"]
